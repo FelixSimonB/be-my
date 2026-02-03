@@ -1,83 +1,79 @@
 :root {
-    --pink: #ff4d6d;
-    --light-pink: #ffe5ec;
-    --dark: #2b2d42;
+    --sky: #cfe9ff;
+    --cloud: #ffffffcc;
+    --meadow: #eaf4d3;
+    --gold: #f6c177;
+    --ink: #3a3a3a;
 }
 
 * {
     box-sizing: border-box;
-    font-family: "Segoe UI", system-ui, sans-serif;
+    font-family: "Georgia", serif;
 }
 
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #ffb3c6, #ff758f);
+}
+
+/* Default background (desktop) */
+body {
+    background: url(../assets/images/bg_desktop.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+/* Mobile background */
+@media (max-width: 768px) {
+    body {
+        background: url(../assets/images/bg_mobile.jpg) no-repeat center center;
+        background-size: cover;
+    }
+}
+
+@keyframes cloudMove {
+    from {
+        left: -40%;
+    }
+    to {
+        left: 120%;
+    }
+}
+
+/* 🌼 Scene center */
+.scene {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    z-index: 10001;
 }
 
-/* Floating hearts */
-body::before,
-body::after {
-    content: "💖 💕 💘 💝 💞";
-    position: absolute;
-    font-size: 3rem;
-    opacity: 0.15;
-    animation: float 20s linear infinite;
-}
-
-body::after {
-    animation-duration: 30s;
-    font-size: 2.5rem;
-}
-
-@keyframes float {
-    from {
-        transform: translateY(100vh);
-    }
-    to {
-        transform: translateY(-120vh);
-    }
-}
-
-/* Card */
+/* ✨ Card */
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(6px);
     padding: 3rem 2.5rem;
-    border-radius: 24px;
+    border-radius: 28px;
     text-align: center;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    max-width: 380px;
+    max-width: 520px;
     width: 90%;
-    animation: pop 0.8s ease;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes pop {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-h1 {
-    color: var(--pink);
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+h2 {
+    font-size: 2.2rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
 }
 
 p {
-    color: var(--dark);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: #555;
     margin-bottom: 2rem;
-    font-size: 1.1rem;
 }
 
+/* Buttons */
 .buttons {
     display: flex;
     gap: 1rem;
@@ -85,33 +81,106 @@ p {
 }
 
 button {
-    border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.8rem;
     border-radius: 999px;
-    font-weight: 600;
+    border: none;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: system-ui, sans-serif;
 }
 
-/* YES */
+/* YES – warm magic */
 .yes {
-    background: var(--pink);
-    color: white;
+    background: linear-gradient(135deg, #f6c177, #ffd89b);
+    color: #4a2c14;
+    box-shadow: 0 10px 20px rgba(246, 193, 119, 0.4);
 }
 .yes:hover {
-    transform: scale(1.1);
-    box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
+    transform: scale(1.08);
 }
 
-/* NO */
+/* NO – shy */
 .no {
-    background: var(--light-pink);
-    color: var(--pink);
+    background: #ffffff;
+    color: #888;
+    border: 1px solid #ddd;
     position: relative;
 }
 
 .footer {
     margin-top: 2rem;
     font-size: 0.85rem;
-    color: #888;
+    color: #777;
+}
+
+/* Heart confetti */
+.confetti-heart {
+    position: absolute;
+    top: -50px;
+    color: #ff4d6d;
+    pointer-events: none;
+    animation: heartFall linear forwards;
+    z-index: 20;
+    user-select: none;
+}
+
+/* Heart fall animation */
+@keyframes heartFall {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) rotate(180deg) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) scale(0.8);
+        opacity: 0;
+    }
+}
+
+#card-gif {
+    width: 100%;
+}
+
+/* Romantic fonts */
+body {
+    font-family: "Parisienne", Georgia, serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Heading - romantic script */
+
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(1px);
+    padding: 3rem 2.5rem;
+    border-radius: 28px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+
+    /* subtle glow */
+    box-shadow:
+        0 0 30px rgba(255, 240, 221, 0.4),
+        0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.card h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: #3a3a3a;
+    margin-bottom: 1rem;
+}
+
+.buttons {
+    button {
+        font-weight: bold;
+    }
 }
