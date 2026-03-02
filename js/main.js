@@ -43,7 +43,7 @@ function createHearts(num) {
   for (let i = 0; i < num; i++) {
     const heart = document.createElement("div");
     heart.classList.add("confetti-heart");
-    heart.textContent = "💖"; // Make sure the heart emoji is set
+    heart.textContent = "💞"; // Make sure the heart emoji is set
     heart.style.left = Math.random() * window.innerWidth + "px";
     heart.style.animationDuration = 2 + Math.random() * 3 + "s";
     heart.style.fontSize = 20 + Math.random() * 30 + "px";
